@@ -1,3 +1,5 @@
+# Šifrování souborů
+
 Vaším úkolem je realizovat dvě (či více) funkcí, (ne celý program), které dokáží zašifrovat a dešifrovat obrázkový soubor ve formátu TGA.
 
 Pro naši úlohu budeme uvažovat zjednodušenou formu obrázku:
@@ -7,10 +9,10 @@ Volitelná část hlavičky: velikost se vypočítá z povinné části hlavičk
 Obrázková data: zbytek.
 Parametry Vámi implementovaných funkcí jsou:
 
-bool encrypt_data (const string & in_filename, const string & out_filename, crypto_config & config)
-in_filename - vstupní jméno souboru,
-out_filename - výstupní jméno souboru,
-config - datová struktura crypto_config popsaná níže.
+ - bool encrypt_data (const string & in_filename, const string & out_filename, crypto_config & config)
+ - in_filename - vstupní jméno souboru,
+ - out_filename - výstupní jméno souboru,
+ - config - datová struktura crypto_config popsaná níže.
 Návratová hodnota je true v případě úspěchu, false v opačném případě. K neúspěchu dochází, pokud je soubor nějakým způsobem nevalidní (schází povinná hlavička, nepodaří se otevřít, číst, zapsat, …) nebo se nepodaří opravit nevalidní konfiguraci crypto_configu.
 Funkce decrypt_data využívá stejného rozhraní, jen provádí inverzní operaci vzhledem k šifrování. Dojde tedy ke zkopírování povinné části hlavičky, která není šifrovaná, následně zbytek souboru dešifrujeme stejným způsobem, jako probíhalo šifrování. V tomto případě ale očekáváme předání validního dešifrovacího klíče a IV (pokud je potřeba). Pokud tyto parametry nemáme, nemůžeme data dešifrovat a program by měl zahlásit chybu (return false).
 
@@ -23,9 +25,10 @@ Při šifrování může dojít k následujícímu problému: pokud je šifrovac
 
 Následující funkce pro šifrování se Vám budou hodit:
 
-EVP_EncryptInit_ex, resp. EVP_DecryptInit_ex,
-EVP_EncryptUpdate, resp. EVP_DecryptUpdate,
-EVP_EncryptFinal_ex, resp. EVP_DecryptFinal_ex.
+ - EVP_EncryptInit_ex, resp. EVP_DecryptInit_ex,
+ - EVP_EncryptUpdate, resp. EVP_DecryptUpdate,
+ - EVP_EncryptFinal_ex, resp. EVP_DecryptFinal_ex.
+ - 
 V dokumentaci openssl se můžete podívat, jaké další funkce byste mohli (a měli) využít. Hint: Neexistuje nějaká obecnější funkce, která by tyto funkce zastřešovala?
 
 Ve výchozím stavu mají blokové šifry zapnuté zarovnání (padding) a proto délka výsledného zašifrovaného souboru může být větší než původní. To je chtěné (a v testech očekávané chování) a neměli byste ho měnit.
@@ -36,7 +39,7 @@ Odevzdávejte zdrojový soubor, který obsahuje implementaci požadované funkce
 
 Za základ pro implementaci použijte kód z přiloženého archivu níže. Ukázka obsahuje testovací funkci main, uvedené hodnoty jsou použité při základním testu. Všimněte si, že vkládání hlavičkových souborů a funkce main jsou zabalené v bloku podmíněného překladu (#ifdef/#endif). Prosím, ponechte bloky podmíněného překladu i v odevzdávaném zdrojovém souboru. Podmíněný překlad Vám zjednoduší práci. Při kompilaci na Vašem počítači můžete program normálně spouštět a testovat. Při kompilaci na Progtestu funkce main a vkládání hlavičkových souborů „zmizí“, tedy nebude kolidovat s hlavičkovými soubory a funkcí main testovacího prostředí.
 
-Poznámky:
+## Poznámky:
 
 POZOR! Odevzdaná úloha na Progtestu není zárukou splněné úlohy! Více informací se dozvíte od svého cvičícího.
 Pečlivě ošetřujte souborové operace. Testovací prostředí úmyslně testuje Vaši implementaci pro soubory neexistující, nečitelné nebo soubory s nesprávným datovým obsahem.
