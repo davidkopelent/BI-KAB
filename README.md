@@ -1,6 +1,6 @@
 # Cryptography and Security
 
-This repository contains my homework assignments and practice exercises for the course **Cryptography and Security**. The course covers the mathematical foundations of cryptography and provides an overview of modern encryption algorithms. Students will learn how to use cryptographic keys and certificates in secure systems and gain fundamental knowledge of symmetric and asymmetric cryptographic systems, as well as hash functions in applications.
+This repository contains my homework assignments and practice exercises for the course **Cryptography and Security** [FIT CTU](https://fit.cvut.cz/en). The course covers the mathematical foundations of cryptography and provides an overview of modern encryption algorithms. Students will learn how to use cryptographic keys and certificates in secure systems and gain fundamental knowledge of symmetric and asymmetric cryptographic systems, as well as hash functions in applications.
 
 ## 🚀 How to Use This Repository
 - Clone the repository:
